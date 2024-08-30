@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
+
+body,
+html {
+    font-family: "SUSE", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    width: 800px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden; /* Hide elements that slide out of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.token-enter-div,
+.settings {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding effect */
+}
+
+.token-enter-div {
+    background-color: #1a1a1a;
+    z-index: 1;
+    transform: translateX(0); /* Default position for token-enter-div */
+}
+
+.settings {
+    background-color: #1a1a1a;
+    transform: translateX(100%); /* Start off-screen to the right */
+    z-index: 0;
+}
+
+.settings.active {
+    transform: translateX(0); /* Slide in from the right */
+}
+
+.token-enter-div.active {
+    transform: translateX(-100%); /* Slide out to the left */
+}
+
+.token-enter-div h1,
+.settings h1 {
+    color: #ffff;
+}
+
+.token-input {
+    width: 70%; /* Ensure the input takes up 70% of the container's width */
+    max-width: 500px; /* Optional: limit the maximum width for better layout */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    color: #ffff;
+    border-radius: 4px;
+    font-family: "SUSE", sans-serif;
+    font-weight: 800;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+}
+
+.token-input:focus {
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(#1a1a1a, #1a1a1a),
+        linear-gradient(45deg, #ff5ff9, #ff495f);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.token-enter-div button,
+.settings button {
+    width: 70%; /* Ensure button takes up 70% of the container's width */
+    max-width: 250px; /* Optional: limit the maximum width for better layout */
+    padding: 10px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #ff5ff9, #ff495f);
+    color: #fff;
+    font-family: "SUSE", sans-serif;
+    font-weight: 800;
+    cursor: none;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+    border: none;
+}
+
+.token-enter-div button:hover,
+.settings button:hover {
+    transform: scale(1.05); /* Slightly increase button size on hover */
+}
+
+.bot-info {
+    width: 80%;
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+.bot-info-avatar {
+    width: 10%;
+    border-radius: 50%;
+    border: 3px solid #57f287;
+    margin-right: 10px; /* Space between the avatar and the name */
+}
+
+.bot-info-name {
+    color: #ffff;
+    font-size: 1.2em; /* Optional: adjust the font size if needed */
+}
+
+.bot-info-avatar.error {
+    border: 3px solid #f04747;
+}
+
+.bot-info-name.error {
+    color: #f04747;
+}
+
+.settings .buttons {
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.settings .buttons button {
+    margin: 10px;
+}

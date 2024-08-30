@@ -1,0 +1,32 @@
+body {
+    cursor: none; /* Hide the default cursor */
+}
+
+.glow-circle {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    pointer-events: none; /* Prevents the circle from interfering with mouse events */
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    transition:
+        width 0.2s ease,
+        height 0.2s ease; /* Smooth transition */
+}
+
+/* Ensure cursor remains hidden over input fields */
+input,
+textarea,
+select {
+    cursor: none; /* Force cursor to remain hidden over these elements */
+}
+
+/* Increase the size of the glowing circle when hovering over inputs */
+.glow-circle.hovering-input {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
